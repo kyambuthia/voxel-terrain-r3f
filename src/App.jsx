@@ -32,21 +32,10 @@ function App() {
         </Suspense>
 
         <div className="ui-overlay">
-          <header>
-            <h1>Plain Planes</h1>
-            <div className="badge">Voxel Engine v2.0</div>
-          </header>
-
           <footer>
             <div className="controls-hint">
-              <div className="control-group">
-                <span className="key">W</span> <span className="key">A</span> <span className="key">S</span> <span className="key">D</span>
-                <span className="label">Fly & Steer</span>
-              </div>
-              <div className="control-group">
-                <span className="key">Q</span> <span className="key">E</span>
-                <span className="label">Altitude</span>
-              </div>
+              <span className="key">W</span> <span className="key">A</span> <span className="key">S</span> <span className="key">D</span>
+              <span className="key">Q</span> <span className="key">E</span>
             </div>
           </footer>
 
