@@ -38,7 +38,7 @@ Use AI image generators (like nano-banana) to create height and color map pairs.
 
 ## Demo
 
-![Screencast](public/screencast.mp4)
+![Screencast](public/screencast.gif)
 
 ## Tech Stack
 
