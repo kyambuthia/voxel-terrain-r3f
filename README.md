@@ -1,16 +1,47 @@
-# React + Vite
+# Voxel Terrain R3F
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Voxel Space terrain renderer built with React Three Fiber, implementing the classic voxel terrain rendering algorithm.
 
-Currently, two official plugins are available:
+![Screenshot](public/screenshot.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Getting Started
 
-## React Compiler
+```bash
+npm install
+npm run dev
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Controls
 
-## Expanding the ESLint configuration
+| Key | Action |
+|-----|--------|
+| W | Fly forward |
+| S | Fly backward |
+| A | Turn left |
+| D | Turn right |
+| Q | Increase altitude |
+| E | Decrease altitude |
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## How It Works
+
+The Voxel Space algorithm renders terrain using height maps and color maps:
+- **Height Map**: Grayscale image where pixel brightness = terrain elevation
+- **Color Map**: RGB image with pre-baked terrain colors, textures, and shadows
+
+The renderer casts rays from the camera into the world, marching from near to far. Each terrain sample is projected onto the screen, and only pixels above the highest previously drawn point are rendered (front-to-back rendering with occlusion).
+
+See [DOCS/VOXEL_SPACE_ALGORITHM.md](DOCS/VOXEL_SPACE_ALGORITHM.md) for detailed algorithm documentation.
+
+## Generating Terrain Maps
+
+Use AI image generators (like nano-banana) to create height and color map pairs. See `DOCS/VOXEL_SPACE_ALGORITHM.md` for optimized prompts.
+
+## Demo
+
+![Screencast](public/screencast.mp4)
+
+## Tech Stack
+
+- React + Vite
+- React Three Fiber
+- Custom GLSL shaders
